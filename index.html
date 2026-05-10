@@ -1,68 +1,86 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>AiLibas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body{
-      margin:0;
-      font-family:Arial;
-      background:#000;
-      color:white;
-      text-align:center;
-    }
+export default function AiLibasApp() { return ( <div className="min-h-screen bg-black text-white font-sans"> <header className="p-6 flex justify-between items-center border-b border-zinc-800"> <h1 className="text-3xl font-bold text-yellow-400">AiLibas</h1> <button className="bg-yellow-400 text-black px-4 py-2 rounded-xl font-semibold"> Login </button> </header>
 
-    .hero{
-      padding:60px 20px;
-    }
+<section className="text-center py-16 px-4">
+    <h2 className="text-5xl font-bold mb-4">
+      AI Fashion Try-On Platform
+    </h2>
+    <p className="text-zinc-400 max-w-xl mx-auto text-lg">
+      Upload your photo and preview outfits with AI powered fashion technology.
+    </p>
 
-    h1{
-      font-size:45px;
-      color:gold;
-    }
+    <div className="mt-8 flex justify-center gap-4 flex-wrap">
+      <button className="bg-yellow-400 text-black px-6 py-3 rounded-2xl font-bold shadow-lg">
+        Upload Photo
+      </button>
 
-    p{
-      color:#ccc;
-      font-size:18px;
-    }
+      <button className="border border-zinc-600 px-6 py-3 rounded-2xl">
+        Explore Fashion
+      </button>
+    </div>
+  </section>
 
-    .btn{
-      background:gold;
-      color:black;
-      padding:15px 30px;
-      border:none;
-      border-radius:10px;
-      font-size:18px;
-      margin-top:20px;
-    }
+  <section className="grid md:grid-cols-3 gap-6 p-6">
+    <div className="bg-zinc-900 rounded-3xl p-6 shadow-xl">
+      <h3 className="text-2xl font-bold mb-3">Virtual Try-On</h3>
+      <p className="text-zinc-400">
+        Preview saree, kurta, sherwani and modern outfits using AI.
+      </p>
+    </div>
 
-    .box{
-      margin:30px;
-      padding:20px;
-      background:#111;
-      border-radius:20px;
-    }
-  </style>
-</head>
+    <div className="bg-zinc-900 rounded-3xl p-6 shadow-xl">
+      <h3 className="text-2xl font-bold mb-3">Indian Fashion</h3>
+      <p className="text-zinc-400">
+        Traditional and modern fashion collections for everyone.
+      </p>
+    </div>
 
-<body>
+    <div className="bg-zinc-900 rounded-3xl p-6 shadow-xl">
+      <h3 className="text-2xl font-bold mb-3">AI Stylist</h3>
+      <p className="text-zinc-400">
+        Get smart recommendations based on your look and style.
+      </p>
+    </div>
+  </section>
 
-<div class="hero">
-  <h1>AiLibas</h1>
-  <p>AI Powered Fashion Try-On Platform</p>
+  <section className="p-6">
+    <div className="bg-zinc-900 rounded-3xl p-8 text-center">
+      <h2 className="text-3xl font-bold mb-4">Upload Your Photo</h2>
+      <input
+        type="file"
+        className="bg-zinc-800 p-3 rounded-xl"
+      />
 
-  <button class="btn">Upload Photo</button>
+      <div className="mt-8 border border-dashed border-zinc-700 rounded-3xl p-12">
+        <p className="text-zinc-500">
+          AI Try-On Result Will Appear Here
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section className="p-6 grid md:grid-cols-4 gap-6">
+    {[
+      "Saree",
+      "Kurta",
+      "Sherwani",
+      "Streetwear",
+      "Wedding",
+      "Casual",
+      "Luxury",
+      "Designer"
+    ].map((item) => (
+      <div
+        key={item}
+        className="bg-zinc-900 rounded-2xl p-6 text-center hover:scale-105 transition"
+      >
+        <h3 className="text-xl font-semibold">{item}</h3>
+      </div>
+    ))}
+  </section>
+
+  <footer className="border-t border-zinc-800 mt-12 p-6 text-center text-zinc-500">
+    © 2026 AiLibas — Future of AI Fashion
+  </footer>
 </div>
 
-<div class="box">
-  <h2>Virtual Try-On</h2>
-  <p>See yourself in any outfit using AI.</p>
-</div>
-
-<div class="box">
-  <h2>Indian Fashion</h2>
-  <p>Saree, Kurta, Sherwani and more.</p>
-</div>
-
-</body>
-</html>
+); }
