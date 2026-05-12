@@ -13,7 +13,7 @@
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:Arial;
+      font-family:Arial,sans-serif;
     }
 
     body{
@@ -34,57 +34,92 @@
     }
 
     .logo{
+      color:gold;
       font-size:32px;
       font-weight:bold;
-      color:gold;
     }
 
-    .btn{
+    .logo p{
+      font-size:12px;
+      color:#777;
+      margin-top:3px;
+    }
+
+    .top-btn{
       background:gold;
       color:black;
-      padding:12px 20px;
       border:none;
+      padding:12px 22px;
       border-radius:12px;
       font-weight:bold;
       cursor:pointer;
-      margin-top:10px;
-      width:100%;
     }
 
     .hero{
       text-align:center;
-      padding:80px 20px;
+      padding:100px 20px;
     }
 
     .hero h1{
-      font-size:55px;
+      font-size:65px;
       margin-bottom:20px;
+      line-height:1.2;
     }
 
     .hero p{
       color:#aaa;
-      max-width:700px;
+      max-width:750px;
       margin:auto;
-      line-height:30px;
       font-size:20px;
+      line-height:35px;
+    }
+
+    .hero-buttons{
+      margin-top:40px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 28px;
+      border-radius:16px;
+      font-weight:bold;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    .gold-btn{
+      background:gold;
+      color:black;
+    }
+
+    .dark-btn{
+      background:#111;
+      border:1px solid #333;
+      color:white;
     }
 
     .auth-section{
+      display:none;
       max-width:500px;
-      margin:20px auto;
+      margin:30px auto;
       padding:20px;
     }
 
     .auth-box{
       background:#111;
-      padding:30px;
-      border-radius:25px;
+      padding:35px;
+      border-radius:30px;
       border:1px solid #222;
     }
 
     .auth-box h2{
-      margin-bottom:20px;
       text-align:center;
+      margin-bottom:25px;
+      font-size:32px;
     }
 
     input{
@@ -92,36 +127,51 @@
       background:#222;
       border:none;
       color:white;
-      padding:15px;
-      border-radius:12px;
+      padding:16px;
+      border-radius:14px;
       margin-bottom:15px;
+      font-size:16px;
+    }
+
+    .auth-box button{
+      width:100%;
+      margin-top:10px;
     }
 
     .upload-section{
-      max-width:900px;
+      max-width:1100px;
       margin:auto;
       padding:20px;
     }
 
     .upload-box{
       background:#111;
-      padding:40px;
-      border-radius:30px;
-      text-align:center;
+      padding:45px;
+      border-radius:35px;
       border:1px solid #222;
+      text-align:center;
     }
 
     .upload-box h2{
-      margin-bottom:20px;
-      font-size:35px;
+      font-size:42px;
+      margin-bottom:15px;
     }
 
-    .preview{
-      margin-top:30px;
+    .upload-box p{
+      color:#888;
+      margin-bottom:30px;
     }
 
-    .preview img{
-      width:250px;
+    .preview-box{
+      margin-top:35px;
+      border:2px dashed #333;
+      padding:50px;
+      border-radius:30px;
+      background:#000;
+    }
+
+    .preview-box img{
+      max-width:300px;
       border-radius:20px;
       display:none;
     }
@@ -129,39 +179,46 @@
     .cards{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-      padding:40px 20px;
+      gap:25px;
       max-width:1200px;
-      margin:auto;
+      margin:50px auto;
+      padding:20px;
     }
 
     .card{
       background:#111;
-      padding:30px;
-      border-radius:25px;
+      padding:35px;
+      border-radius:30px;
       border:1px solid #222;
     }
 
     .card h3{
+      font-size:30px;
       margin-bottom:15px;
-      font-size:28px;
     }
 
     .card p{
-      color:#aaa;
-      line-height:28px;
+      color:#999;
+      line-height:30px;
     }
 
     .categories{
-      padding:40px 20px;
       max-width:1200px;
       margin:auto;
+      padding:20px;
     }
 
-    .categories h2{
+    .categories-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       margin-bottom:30px;
-      font-size:40px;
-      text-align:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .categories-top h2{
+      font-size:45px;
     }
 
     .category-grid{
@@ -172,28 +229,81 @@
 
     .category{
       background:#111;
-      padding:40px 20px;
-      border-radius:25px;
-      text-align:center;
       border:1px solid #222;
+      padding:45px 20px;
+      border-radius:30px;
+      text-align:center;
+      font-size:24px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .category:hover{
+      transform:scale(1.05);
+    }
+
+    .future{
+      max-width:1200px;
+      margin:70px auto;
+      padding:20px;
+    }
+
+    .future-box{
+      background:linear-gradient(to right,#111,#000);
+      border:1px solid #222;
+      border-radius:40px;
+      padding:60px 30px;
+      text-align:center;
+    }
+
+    .future-box h2{
+      font-size:60px;
+      margin-bottom:25px;
+    }
+
+    .future-box p{
+      max-width:850px;
+      margin:auto;
+      color:#999;
+      line-height:35px;
+      font-size:20px;
     }
 
     footer{
-      margin-top:60px;
       border-top:1px solid #222;
+      padding:40px 20px;
       text-align:center;
-      padding:30px;
       color:#777;
+      margin-top:80px;
+    }
+
+    footer h3{
+      color:gold;
+      font-size:30px;
+      margin-bottom:10px;
     }
 
     @media(max-width:768px){
 
       .hero h1{
-        font-size:40px;
+        font-size:42px;
       }
 
       .hero p{
         font-size:17px;
+        line-height:30px;
+      }
+
+      .upload-box h2{
+        font-size:32px;
+      }
+
+      .future-box h2{
+        font-size:40px;
+      }
+
+      .categories-top h2{
+        font-size:35px;
       }
 
     }
@@ -206,26 +316,44 @@
 
 <header>
 
-  <div class="logo">AiLibas</div>
+  <div class="logo">
+    AiLibas
+    <p>AI Fashion Platform</p>
+  </div>
 
-  <button class="btn" style="width:auto;">
-    AI Fashion
+  <button class="top-btn" onclick="toggleAuth()">
+    Login
   </button>
 
 </header>
 
 <section class="hero">
 
-  <h1>AI Fashion Try-On Platform</h1>
+  <h1>
+    Try Any Outfit <br>
+    With AI
+  </h1>
 
   <p>
     Upload your photo and preview saree, kurta,
-    sherwani and modern outfits using AI.
+    sherwani, wedding outfits and modern fashion instantly.
   </p>
+
+  <div class="hero-buttons">
+
+    <button class="btn gold-btn">
+      Upload Photo
+    </button>
+
+    <button class="btn dark-btn">
+      Explore Fashion
+    </button>
+
+  </div>
 
 </section>
 
-<section class="auth-section">
+<section class="auth-section" id="authSection">
 
   <div class="auth-box">
 
@@ -243,15 +371,15 @@
       placeholder="Enter Password"
     >
 
-    <button class="btn" onclick="signup()">
+    <button class="btn gold-btn" onclick="signup()">
       Signup
     </button>
 
-    <button class="btn" onclick="login()">
+    <button class="btn dark-btn" onclick="login()">
       Login
     </button>
 
-    <button class="btn" onclick="googleLogin()">
+    <button class="btn gold-btn" onclick="googleLogin()">
       Google Login
     </button>
 
@@ -265,10 +393,20 @@
 
     <h2>Upload Your Photo</h2>
 
+    <p>
+      Upload a clear front-facing image to preview outfits.
+    </p>
+
     <input type="file" id="fileInput">
 
-    <div class="preview">
+    <div class="preview-box">
+
       <img id="previewImage">
+
+      <p id="previewText">
+        AI Generated Outfit Preview Will Appear Here
+      </p>
+
     </div>
 
   </div>
@@ -278,18 +416,18 @@
 <section class="cards">
 
   <div class="card">
-    <h3>Virtual Try-On</h3>
+    <h3>AI Virtual Try-On</h3>
 
     <p>
-      Preview Indian and modern outfits instantly.
+      Upload your image and preview outfits using advanced AI fashion technology.
     </p>
   </div>
 
   <div class="card">
-    <h3>Wedding Fashion</h3>
+    <h3>Wedding Collection</h3>
 
     <p>
-      Explore lehenga, sherwani and premium wedding styles.
+      Explore lehenga, sherwani, saree and premium Indian wedding fashion styles.
     </p>
   </div>
 
@@ -297,7 +435,7 @@
     <h3>AI Stylist</h3>
 
     <p>
-      Smart outfit recommendations using AI.
+      Smart recommendations based on your body, style and outfit preference.
     </p>
   </div>
 
@@ -305,14 +443,24 @@
 
 <section class="categories">
 
-  <h2>Fashion Categories</h2>
+  <div class="categories-top">
+
+    <h2>Fashion Categories</h2>
+
+    <button class="btn dark-btn">
+      View All
+    </button>
+
+  </div>
 
   <div class="category-grid">
 
     <div class="category">Saree</div>
     <div class="category">Kurta</div>
     <div class="category">Sherwani</div>
+    <div class="category">Streetwear</div>
     <div class="category">Wedding</div>
+    <div class="category">Casual</div>
     <div class="category">Luxury</div>
     <div class="category">Designer</div>
 
@@ -320,16 +468,41 @@
 
 </section>
 
+<section class="future">
+
+  <div class="future-box">
+
+    <h2>Future of AI Fashion</h2>
+
+    <p>
+      AiLibas combines artificial intelligence and Indian fashion to create the next generation virtual try-on experience.
+    </p>
+
+    <button class="btn gold-btn" style="margin-top:30px;">
+      Start Trying
+    </button>
+
+  </div>
+
+</section>
+
 <footer>
 
-  © 2026 AiLibas — AI Fashion Platform
+  <h3>AiLibas</h3>
+
+  <p>
+    © 2026 AiLibas — AI Powered Fashion Platform
+  </p>
 
 </footer>
 
 <script>
 
 const fileInput = document.getElementById("fileInput");
+
 const previewImage = document.getElementById("previewImage");
+
+const previewText = document.getElementById("previewText");
 
 fileInput.addEventListener("change", function(){
 
@@ -342,7 +515,10 @@ fileInput.addEventListener("change", function(){
     reader.onload = function(e){
 
       previewImage.src = e.target.result;
+
       previewImage.style.display = "block";
+
+      previewText.style.display = "none";
 
     }
 
@@ -351,6 +527,26 @@ fileInput.addEventListener("change", function(){
   }
 
 });
+
+window.toggleAuth = function(){
+
+  const authSection = document.getElementById("authSection");
+
+  if(authSection.style.display === "none" || authSection.style.display === ""){
+
+    authSection.style.display = "block";
+
+    authSection.scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }else{
+
+    authSection.style.display = "none";
+
+  }
+
+}
 
 </script>
 
@@ -396,7 +592,7 @@ window.signup = function(){
 
   const password = document.getElementById("password").value;
 
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth,email,password)
 
   .then(() => {
 
@@ -418,7 +614,7 @@ window.login = function(){
 
   const password = document.getElementById("password").value;
 
-  signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth,email,password)
 
   .then(() => {
 
@@ -436,7 +632,7 @@ window.login = function(){
 
 window.googleLogin = function(){
 
-  signInWithPopup(auth, provider)
+  signInWithPopup(auth,provider)
 
   .then(() => {
 
