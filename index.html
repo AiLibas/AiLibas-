@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>AiLibas</title>
 
@@ -46,6 +47,8 @@
       border-radius:12px;
       font-weight:bold;
       cursor:pointer;
+      margin-top:10px;
+      width:100%;
     }
 
     .hero{
@@ -66,6 +69,34 @@
       font-size:20px;
     }
 
+    .auth-section{
+      max-width:500px;
+      margin:20px auto;
+      padding:20px;
+    }
+
+    .auth-box{
+      background:#111;
+      padding:30px;
+      border-radius:25px;
+      border:1px solid #222;
+    }
+
+    .auth-box h2{
+      margin-bottom:20px;
+      text-align:center;
+    }
+
+    input{
+      width:100%;
+      background:#222;
+      border:none;
+      color:white;
+      padding:15px;
+      border-radius:12px;
+      margin-bottom:15px;
+    }
+
     .upload-section{
       max-width:900px;
       margin:auto;
@@ -83,16 +114,6 @@
     .upload-box h2{
       margin-bottom:20px;
       font-size:35px;
-    }
-
-    input{
-      margin-top:20px;
-      background:#222;
-      padding:15px;
-      border-radius:12px;
-      color:white;
-      width:100%;
-      max-width:400px;
     }
 
     .preview{
@@ -119,11 +140,6 @@
       padding:30px;
       border-radius:25px;
       border:1px solid #222;
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-5px);
     }
 
     .card h3{
@@ -160,11 +176,6 @@
       border-radius:25px;
       text-align:center;
       border:1px solid #222;
-      transition:0.3s;
-    }
-
-    .category:hover{
-      transform:scale(1.05);
     }
 
     footer{
@@ -188,6 +199,7 @@
     }
 
   </style>
+
 </head>
 
 <body>
@@ -196,22 +208,54 @@
 
   <div class="logo">AiLibas</div>
 
-  <button class="btn">
-    Login
+  <button class="btn" style="width:auto;">
+    AI Fashion
   </button>
 
 </header>
 
 <section class="hero">
 
-  <h1>
-    AI Fashion Try-On Platform
-  </h1>
+  <h1>AI Fashion Try-On Platform</h1>
 
   <p>
     Upload your photo and preview saree, kurta,
     sherwani and modern outfits using AI.
   </p>
+
+</section>
+
+<section class="auth-section">
+
+  <div class="auth-box">
+
+    <h2>Login / Signup</h2>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Enter Email"
+    >
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter Password"
+    >
+
+    <button class="btn" onclick="signup()">
+      Signup
+    </button>
+
+    <button class="btn" onclick="login()">
+      Login
+    </button>
+
+    <button class="btn" onclick="googleLogin()">
+      Google Login
+    </button>
+
+  </div>
 
 </section>
 
@@ -284,50 +328,129 @@
 
 <script>
 
-  const fileInput = document.getElementById("fileInput");
-  const previewImage = document.getElementById("previewImage");
+const fileInput = document.getElementById("fileInput");
+const previewImage = document.getElementById("previewImage");
 
-  fileInput.addEventListener("change", function(){
+fileInput.addEventListener("change", function(){
 
-    const file = this.files[0];
+  const file = this.files[0];
 
-    if(file){
+  if(file){
 
-      const reader = new FileReader();
+    const reader = new FileReader();
 
-      reader.onload = function(e){
+    reader.onload = function(e){
 
-        previewImage.src = e.target.result;
-        previewImage.style.display = "block";
-
-      }
-
-      reader.readAsDataURL(file);
+      previewImage.src = e.target.result;
+      previewImage.style.display = "block";
 
     }
 
-  });
+    reader.readAsDataURL(file);
+
+  }
+
+});
 
 </script>
 
-<!-- Firebase -->
-
 <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+}
+from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
 const firebaseConfig = {
+
   apiKey: "AIzaSyDUIRT56QyHIrhDQ0ZX8zniAso5PueD19M",
+
   authDomain: "ailibas.firebaseapp.com",
+
   projectId: "ailibas",
+
   storageBucket: "ailibas.firebasestorage.app",
+
   messagingSenderId: "165472647243",
+
   appId: "1:165472647243:web:5af99b836ec3dc962635ce"
+
 };
 
 const app = initializeApp(firebaseConfig);
 
-console.log("Firebase Connected");
+const auth = getAuth(app);
+
+const provider = new GoogleAuthProvider();
+
+window.signup = function(){
+
+  const email = document.getElementById("email").value;
+
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+
+  .then(() => {
+
+    alert("Signup Successful");
+
+  })
+
+  .catch((error) => {
+
+    alert(error.message);
+
+  });
+
+}
+
+window.login = function(){
+
+  const email = document.getElementById("email").value;
+
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+
+  .then(() => {
+
+    alert("Login Successful");
+
+  })
+
+  .catch((error) => {
+
+    alert(error.message);
+
+  });
+
+}
+
+window.googleLogin = function(){
+
+  signInWithPopup(auth, provider)
+
+  .then(() => {
+
+    alert("Google Login Successful");
+
+  })
+
+  .catch((error) => {
+
+    alert(error.message);
+
+  });
+
+}
 
 </script>
 
