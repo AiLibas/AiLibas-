@@ -1,86 +1,335 @@
-export default function AiLibasApp() { return ( <div className="min-h-screen bg-black text-white font-sans"> <header className="p-6 flex justify-between items-center border-b border-zinc-800"> <h1 className="text-3xl font-bold text-yellow-400">AiLibas</h1> <button className="bg-yellow-400 text-black px-4 py-2 rounded-xl font-semibold"> Login </button> </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<section className="text-center py-16 px-4">
-    <h2 className="text-5xl font-bold mb-4">
-      AI Fashion Try-On Platform
-    </h2>
-    <p className="text-zinc-400 max-w-xl mx-auto text-lg">
-      Upload your photo and preview outfits with AI powered fashion technology.
+  <title>AiLibas</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial;
+    }
+
+    body{
+      background:black;
+      color:white;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px;
+      border-bottom:1px solid #222;
+      position:sticky;
+      top:0;
+      background:black;
+      z-index:100;
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:bold;
+      color:gold;
+    }
+
+    .btn{
+      background:gold;
+      color:black;
+      padding:12px 20px;
+      border:none;
+      border-radius:12px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .hero{
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    .hero h1{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      color:#aaa;
+      max-width:700px;
+      margin:auto;
+      line-height:30px;
+      font-size:20px;
+    }
+
+    .upload-section{
+      max-width:900px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .upload-box{
+      background:#111;
+      padding:40px;
+      border-radius:30px;
+      text-align:center;
+      border:1px solid #222;
+    }
+
+    .upload-box h2{
+      margin-bottom:20px;
+      font-size:35px;
+    }
+
+    input{
+      margin-top:20px;
+      background:#222;
+      padding:15px;
+      border-radius:12px;
+      color:white;
+      width:100%;
+      max-width:400px;
+    }
+
+    .preview{
+      margin-top:30px;
+    }
+
+    .preview img{
+      width:250px;
+      border-radius:20px;
+      display:none;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      padding:40px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .card{
+      background:#111;
+      padding:30px;
+      border-radius:25px;
+      border:1px solid #222;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      font-size:28px;
+    }
+
+    .card p{
+      color:#aaa;
+      line-height:28px;
+    }
+
+    .categories{
+      padding:40px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .categories h2{
+      margin-bottom:30px;
+      font-size:40px;
+      text-align:center;
+    }
+
+    .category-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+
+    .category{
+      background:#111;
+      padding:40px 20px;
+      border-radius:25px;
+      text-align:center;
+      border:1px solid #222;
+      transition:0.3s;
+    }
+
+    .category:hover{
+      transform:scale(1.05);
+    }
+
+    footer{
+      margin-top:60px;
+      border-top:1px solid #222;
+      text-align:center;
+      padding:30px;
+      color:#777;
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:40px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">AiLibas</div>
+
+  <button class="btn">
+    Login
+  </button>
+
+</header>
+
+<section class="hero">
+
+  <h1>
+    AI Fashion Try-On Platform
+  </h1>
+
+  <p>
+    Upload your photo and preview saree, kurta,
+    sherwani and modern outfits using AI.
+  </p>
+
+</section>
+
+<section class="upload-section">
+
+  <div class="upload-box">
+
+    <h2>Upload Your Photo</h2>
+
+    <input type="file" id="fileInput">
+
+    <div class="preview">
+      <img id="previewImage">
+    </div>
+
+  </div>
+
+</section>
+
+<section class="cards">
+
+  <div class="card">
+    <h3>Virtual Try-On</h3>
+
+    <p>
+      Preview Indian and modern outfits instantly.
     </p>
+  </div>
 
-    <div className="mt-8 flex justify-center gap-4 flex-wrap">
-      <button className="bg-yellow-400 text-black px-6 py-3 rounded-2xl font-bold shadow-lg">
-        Upload Photo
-      </button>
+  <div class="card">
+    <h3>Wedding Fashion</h3>
 
-      <button className="border border-zinc-600 px-6 py-3 rounded-2xl">
-        Explore Fashion
-      </button>
-    </div>
-  </section>
+    <p>
+      Explore lehenga, sherwani and premium wedding styles.
+    </p>
+  </div>
 
-  <section className="grid md:grid-cols-3 gap-6 p-6">
-    <div className="bg-zinc-900 rounded-3xl p-6 shadow-xl">
-      <h3 className="text-2xl font-bold mb-3">Virtual Try-On</h3>
-      <p className="text-zinc-400">
-        Preview saree, kurta, sherwani and modern outfits using AI.
-      </p>
-    </div>
+  <div class="card">
+    <h3>AI Stylist</h3>
 
-    <div className="bg-zinc-900 rounded-3xl p-6 shadow-xl">
-      <h3 className="text-2xl font-bold mb-3">Indian Fashion</h3>
-      <p className="text-zinc-400">
-        Traditional and modern fashion collections for everyone.
-      </p>
-    </div>
+    <p>
+      Smart outfit recommendations using AI.
+    </p>
+  </div>
 
-    <div className="bg-zinc-900 rounded-3xl p-6 shadow-xl">
-      <h3 className="text-2xl font-bold mb-3">AI Stylist</h3>
-      <p className="text-zinc-400">
-        Get smart recommendations based on your look and style.
-      </p>
-    </div>
-  </section>
+</section>
 
-  <section className="p-6">
-    <div className="bg-zinc-900 rounded-3xl p-8 text-center">
-      <h2 className="text-3xl font-bold mb-4">Upload Your Photo</h2>
-      <input
-        type="file"
-        className="bg-zinc-800 p-3 rounded-xl"
-      />
+<section class="categories">
 
-      <div className="mt-8 border border-dashed border-zinc-700 rounded-3xl p-12">
-        <p className="text-zinc-500">
-          AI Try-On Result Will Appear Here
-        </p>
-      </div>
-    </div>
-  </section>
+  <h2>Fashion Categories</h2>
 
-  <section className="p-6 grid md:grid-cols-4 gap-6">
-    {[
-      "Saree",
-      "Kurta",
-      "Sherwani",
-      "Streetwear",
-      "Wedding",
-      "Casual",
-      "Luxury",
-      "Designer"
-    ].map((item) => (
-      <div
-        key={item}
-        className="bg-zinc-900 rounded-2xl p-6 text-center hover:scale-105 transition"
-      >
-        <h3 className="text-xl font-semibold">{item}</h3>
-      </div>
-    ))}
-  </section>
+  <div class="category-grid">
 
-  <footer className="border-t border-zinc-800 mt-12 p-6 text-center text-zinc-500">
-    © 2026 AiLibas — Future of AI Fashion
-  </footer>
-</div>
+    <div class="category">Saree</div>
+    <div class="category">Kurta</div>
+    <div class="category">Sherwani</div>
+    <div class="category">Wedding</div>
+    <div class="category">Luxury</div>
+    <div class="category">Designer</div>
 
-); }
+  </div>
+
+</section>
+
+<footer>
+
+  © 2026 AiLibas — AI Fashion Platform
+
+</footer>
+
+<script>
+
+  const fileInput = document.getElementById("fileInput");
+  const previewImage = document.getElementById("previewImage");
+
+  fileInput.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(file){
+
+      const reader = new FileReader();
+
+      reader.onload = function(e){
+
+        previewImage.src = e.target.result;
+        previewImage.style.display = "block";
+
+      }
+
+      reader.readAsDataURL(file);
+
+    }
+
+  });
+
+</script>
+
+<!-- Firebase -->
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDUIRT56QyHIrhDQ0ZX8zniAso5PueD19M",
+  authDomain: "ailibas.firebaseapp.com",
+  projectId: "ailibas",
+  storageBucket: "ailibas.firebasestorage.app",
+  messagingSenderId: "165472647243",
+  appId: "1:165472647243:web:5af99b836ec3dc962635ce"
+};
+
+const app = initializeApp(firebaseConfig);
+
+console.log("Firebase Connected");
+
+</script>
+
+</body>
+</html>
