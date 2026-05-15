@@ -3,976 +3,372 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <title>AiLibas - AI Fashion</title>
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#000;
-color:#fff;
-overflow-x:hidden;
-}
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 5%;
-border-bottom:1px solid #222;
-position:sticky;
-top:0;
-background:#000;
-z-index:999;
-}
-
-.logo{
-font-size:34px;
-font-weight:bold;
-color:gold;
-}
-
-.logo small{
-display:block;
-font-size:12px;
-color:#888;
-margin-top:4px;
-}
-
-.top-btn{
-background:gold;
-color:#000;
-border:none;
-padding:12px 22px;
-border-radius:15px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.hero{
-padding:80px 5%;
-text-align:center;
-}
-
-.hero h1{
-font-size:80px;
-line-height:1.1;
-margin-bottom:20px;
-}
-
-.hero p{
-max-width:800px;
-margin:auto;
-font-size:22px;
-color:#999;
-line-height:36px;
-}
-
-.hero-buttons{
-margin-top:40px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:18px 34px;
-border:none;
-border-radius:18px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-.gold-btn{
-background:gold;
-color:black;
-}
-
-.dark-btn{
-background:#111;
-border:1px solid #333;
-color:white;
-}
-
-.auth-section{
-display:none;
-padding:30px 5%;
-}
-
-.auth-box{
-max-width:500px;
-margin:auto;
-background:#111;
-padding:35px;
-border-radius:30px;
-border:1px solid #222;
-}
-
-.auth-box h2{
-text-align:center;
-margin-bottom:25px;
-font-size:34px;
-}
-
-.auth-box input{
-width:100%;
-padding:16px;
-margin-bottom:15px;
-border:none;
-border-radius:14px;
-background:#222;
-color:white;
-font-size:16px;
-}
-
-.auth-box button{
-width:100%;
-margin-top:10px;
-}
-
-.main-section{
-padding:30px 5%;
-}
-
-.main-box{
-max-width:1400px;
-margin:auto;
-background:#111;
-padding:45px 25px;
-border-radius:40px;
-border:1px solid #222;
-}
-
-.main-box h2{
-text-align:center;
-font-size:58px;
-margin-bottom:15px;
-}
-
-.main-box p{
-text-align:center;
-color:#888;
-margin-bottom:40px;
-}
-
-.upload-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:30px;
-}
-
-.upload-card{
-background:#000;
-border-radius:30px;
-padding:25px;
-border:1px solid #222;
-}
-
-.upload-card h3{
-font-size:34px;
-text-align:center;
-margin-bottom:20px;
-}
-
-.upload-card input{
-width:100%;
-padding:15px;
-border:none;
-background:#222;
-border-radius:14px;
-color:white;
-}
-
-.preview{
-margin-top:20px;
-border:2px dashed #333;
-border-radius:25px;
-min-height:420px;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:15px;
-overflow:hidden;
-}
-
-.preview img{
-width:100%;
-border-radius:20px;
-display:none;
-}
-
-.preview p{
-color:#777;
-}
-
-.generate-btn{
-margin-top:35px;
-display:flex;
-justify-content:center;
-}
-
-.result-box{
-margin-top:40px;
-background:#000;
-border-radius:30px;
-padding:35px;
-border:2px dashed #333;
-text-align:center;
-}
-
-.result-box h3{
-font-size:44px;
-margin-bottom:20px;
-}
-
-.result-box img{
-max-width:500px;
-width:100%;
-border-radius:25px;
-display:none;
-margin:auto;
-}
-
-.cards{
-padding:70px 5%;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:25px;
-max-width:1400px;
-margin:auto;
-}
-
-.card{
-background:#111;
-border:1px solid #222;
-padding:35px;
-border-radius:30px;
-}
-
-.card h3{
-font-size:32px;
-margin-bottom:15px;
-}
-
-.card p{
-color:#888;
-line-height:32px;
-}
-
-.categories{
-padding:20px 5%;
-max-width:1400px;
-margin:auto;
-}
-
-.categories h2{
-font-size:55px;
-margin-bottom:35px;
-text-align:center;
-}
-
-.category-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-}
-
-.category{
-background:#111;
-padding:45px 20px;
-border-radius:25px;
-border:1px solid #222;
-text-align:center;
-font-size:24px;
-font-weight:bold;
-}
-
-footer{
-margin-top:80px;
-border-top:1px solid #222;
-padding:40px;
-text-align:center;
-}
-
-footer h3{
-color:gold;
-font-size:32px;
-margin-bottom:10px;
-}
-
-footer p{
-color:#777;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#000;color:#fff;overflow-x:hidden;}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 5%;border-bottom:1px solid #222;position:sticky;top:0;background:#000;z-index:999;}
+.logo{font-size:34px;font-weight:bold;color:gold;}
+.logo small{display:block;font-size:12px;color:#888;margin-top:4px;}
+.top-btn{background:gold;color:#000;border:none;padding:12px 22px;border-radius:15px;font-weight:bold;cursor:pointer;}
+.hero{padding:80px 5%;text-align:center;}
+.hero h1{font-size:80px;line-height:1.1;margin-bottom:20px;}
+.hero p{max-width:800px;margin:auto;font-size:22px;color:#999;line-height:36px;}
+.hero-buttons{margin-top:40px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+.btn{padding:18px 34px;border:none;border-radius:18px;font-size:16px;font-weight:bold;cursor:pointer;transition:0.3s;}
+.btn:hover{transform:scale(1.05);}
+.gold-btn{background:gold;color:black;}
+.dark-btn{background:#111;border:1px solid #333;color:white;}
+.auth-section{display:none;padding:30px 5%;}
+.auth-box{max-width:500px;margin:auto;background:#111;padding:35px;border-radius:30px;border:1px solid #222;}
+.auth-box h2{text-align:center;margin-bottom:25px;font-size:34px;}
+.auth-box input{width:100%;padding:16px;margin-bottom:15px;border:none;border-radius:14px;background:#222;color:white;font-size:16px;}
+.auth-box button{width:100%;margin-top:10px;}
+.token-section{padding:10px 5% 0;max-width:1460px;margin:auto;}
+.token-box{background:#111;border:1px solid #333;border-radius:20px;padding:20px 25px;margin-bottom:10px;}
+.token-box label{font-size:14px;color:#aaa;display:block;margin-bottom:8px;}
+.token-box input{width:100%;padding:13px;border:none;border-radius:12px;background:#222;color:white;font-size:14px;font-family:monospace;}
+.token-box a{color:gold;font-size:13px;display:inline-block;margin-top:8px;text-decoration:none;}
+.main-section{padding:20px 5%;}
+.main-box{max-width:1400px;margin:auto;background:#111;padding:45px 25px;border-radius:40px;border:1px solid #222;}
+.main-box h2{text-align:center;font-size:58px;margin-bottom:15px;}
+.main-box>p{text-align:center;color:#888;margin-bottom:40px;}
+.upload-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;}
+.upload-card{background:#000;border-radius:30px;padding:25px;border:1px solid #222;}
+.upload-card h3{font-size:34px;text-align:center;margin-bottom:20px;}
+.upload-card input[type=file]{width:100%;padding:15px;border:none;background:#222;border-radius:14px;color:white;}
+.preview{margin-top:20px;border:2px dashed #333;border-radius:25px;min-height:420px;display:flex;justify-content:center;align-items:center;padding:15px;overflow:hidden;}
+.preview img{width:100%;border-radius:20px;display:none;}
+.preview p{color:#777;}
+.generate-btn{margin-top:35px;display:flex;justify-content:center;}
+.result-box{margin-top:40px;background:#000;border-radius:30px;padding:35px;border:2px dashed #333;text-align:center;}
+.result-box h3{font-size:44px;margin-bottom:20px;}
+#resultPreview{max-width:500px;width:100%;border-radius:25px;display:none;margin:auto;}
+#statusArea{margin-top:14px;}
+.generating-msg{font-size:22px;color:#aaa;margin-bottom:12px;}
+.timer-num{font-size:52px;font-weight:bold;color:gold;}
+.timer-label{font-size:13px;color:#555;margin-top:4px;}
+.success-msg{font-size:22px;color:lightgreen;margin-bottom:18px;}
+.error-msg{font-size:18px;color:#ff6b6b;}
+.cards{padding:70px 5%;display:grid;grid-template-columns:repeat(3,1fr);gap:25px;max-width:1400px;margin:auto;}
+.card{background:#111;border:1px solid #222;padding:35px;border-radius:30px;}
+.card h3{font-size:32px;margin-bottom:15px;}
+.card p{color:#888;line-height:32px;}
+.categories{padding:20px 5%;max-width:1400px;margin:auto;}
+.categories h2{font-size:55px;margin-bottom:35px;text-align:center;}
+.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.category{background:#111;padding:45px 20px;border-radius:25px;border:1px solid #222;text-align:center;font-size:24px;font-weight:bold;}
+footer{margin-top:80px;border-top:1px solid #222;padding:40px;text-align:center;}
+footer h3{color:gold;font-size:32px;margin-bottom:10px;}
+footer p{color:#777;}
 @media(max-width:1000px){
-
-.hero h1{
-font-size:55px;
+  .hero h1{font-size:55px;}
+  .upload-grid{grid-template-columns:1fr;}
+  .cards{grid-template-columns:1fr;}
+  .category-grid{grid-template-columns:repeat(2,1fr);}
 }
-
-.upload-grid{
-grid-template-columns:1fr;
-}
-
-.cards{
-grid-template-columns:1fr;
-}
-
-.category-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
 @media(max-width:600px){
-
-.hero h1{
-font-size:40px;
+  .hero h1{font-size:40px;}
+  .hero p{font-size:16px;line-height:28px;}
+  .main-box h2{font-size:40px;}
+  .category-grid{grid-template-columns:1fr;}
+  .btn{width:100%;}
 }
-
-.hero p{
-font-size:16px;
-line-height:28px;
-}
-
-.main-box h2{
-font-size:40px;
-}
-
-.category-grid{
-grid-template-columns:1fr;
-}
-
-.btn{
-width:100%;
-}
-
-}
-
 </style>
-
 </head>
-
 <body>
 
 <header>
-
-<div class="logo">
-AiLibas
-<small>AI Fashion Platform</small>
-</div>
-
-<div id="userArea">
-
-<button class="top-btn" onclick="toggleAuth()">
-Login
-</button>
-
-</div>
-
+  <div class="logo">AiLibas<small>AI Fashion Platform</small></div>
+  <div id="userArea">
+    <button class="top-btn" onclick="toggleAuth()">Login</button>
+  </div>
 </header>
 
 <section class="hero">
-
-<h1>
-AI Fashion <br>
-Try-On Platform
-</h1>
-
-<p>
-Upload your photo and preview saree, kurta, sherwani and modern outfits using AI.
-</p>
-
-<div class="hero-buttons">
-
-<button class="btn gold-btn">
-AI Try-On
-</button>
-
-<button class="btn dark-btn">
-Explore Fashion
-</button>
-
-</div>
-
+  <h1>AI Fashion <br>Try-On Platform</h1>
+  <p>Upload your photo and preview saree, kurta, sherwani and modern outfits using AI.</p>
+  <div class="hero-buttons">
+    <button class="btn gold-btn" onclick="document.querySelector('.main-section').scrollIntoView({behavior:'smooth'})">AI Try-On</button>
+    <button class="btn dark-btn" onclick="document.querySelector('.categories').scrollIntoView({behavior:'smooth'})">Explore Fashion</button>
+  </div>
 </section>
 
 <section class="auth-section" id="authSection">
-
-<div class="auth-box">
-
-<h2>Login / Signup</h2>
-
-<input type="email" id="email" placeholder="Enter Email">
-
-<input type="password" id="password" placeholder="Enter Password">
-
-<button class="btn gold-btn" onclick="signup()">
-Signup
-</button>
-
-<button class="btn dark-btn" onclick="login()">
-Login
-</button>
-
-<button class="btn gold-btn" onclick="googleLogin()">
-Continue with Google
-</button>
-
-</div>
-
+  <div class="auth-box">
+    <h2>Login / Signup</h2>
+    <input type="email" id="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button class="btn gold-btn" onclick="signup()">Signup</button>
+    <button class="btn dark-btn" onclick="login()">Login</button>
+    <button class="btn gold-btn" onclick="googleLogin()">Continue with Google</button>
+  </div>
 </section>
 
+<div class="token-section">
+  <div class="token-box">
+    <label>🔑 HuggingFace API Token — AI generate karne ke liye zaruri</label>
+    <input type="password" id="hfTokenInput" placeholder="hf_xxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="off"/>
+    <a href="https://huggingface.co/settings/tokens" target="_blank">Free token yahan se lo →</a>
+  </div>
+</div>
+
 <section class="main-section">
-
-<div class="main-box">
-
-<h2>AI Virtual Try-On</h2>
-
-<p>
-Upload human photo and outfit image.
-</p>
-
-<div class="upload-grid">
-
-<div class="upload-card">
-
-<h3>Human Photo</h3>
-
-<input type="file" id="humanInput">
-
-<div class="preview">
-
-<img id="humanPreview">
-
-<p id="humanText">
-Human image preview
-</p>
-
-</div>
-
-</div>
-
-<div class="upload-card">
-
-<h3>Libas Photo</h3>
-
-<input type="file" id="clothInput">
-
-<div class="preview">
-
-<img id="clothPreview">
-
-<p id="clothText">
-Outfit image preview
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="generate-btn">
-
-<button
-class="btn gold-btn"
-onclick="generateAI()"
->
-Generate AI Outfit
-</button>
-
-</div>
-
-<div class="result-box">
-
-<h3>AI Result</h3>
-
-<img id="resultPreview">
-
-<p id="resultText">
-AI generated outfit will appear here
-</p>
-
-</div>
-
-</div>
-
+  <div class="main-box">
+    <h2>AI Virtual Try-On</h2>
+    <p>Upload human photo and outfit image.</p>
+    <div class="upload-grid">
+      <div class="upload-card">
+        <h3>Human Photo</h3>
+        <input type="file" id="humanInput" accept="image/*">
+        <div class="preview">
+          <img id="humanPreview">
+          <p id="humanText">Human image preview</p>
+        </div>
+      </div>
+      <div class="upload-card">
+        <h3>Libas Photo</h3>
+        <input type="file" id="clothInput" accept="image/*">
+        <div class="preview">
+          <img id="clothPreview">
+          <p id="clothText">Outfit image preview</p>
+        </div>
+      </div>
+    </div>
+    <div class="generate-btn">
+      <button class="btn gold-btn" id="genBtn" onclick="generateAI()">Generate AI Outfit</button>
+    </div>
+    <div class="result-box">
+      <h3>AI Result</h3>
+      <img id="resultPreview">
+      <div id="statusArea">
+        <p style="color:#777;">AI generated outfit will appear here</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="cards">
-
-<div class="card">
-
-<h3>AI Try-On</h3>
-
-<p>
-Preview saree, kurta and modern outfits instantly using AI.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Wedding Fashion</h3>
-
-<p>
-Explore premium Indian wedding collections and styles.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>AI Stylist</h3>
-
-<p>
-Smart AI recommendations based on your fashion style.
-</p>
-
-</div>
-
+  <div class="card"><h3>AI Try-On</h3><p>Preview saree, kurta and modern outfits instantly using AI.</p></div>
+  <div class="card"><h3>Wedding Fashion</h3><p>Explore premium Indian wedding collections and styles.</p></div>
+  <div class="card"><h3>AI Stylist</h3><p>Smart AI recommendations based on your fashion style.</p></div>
 </section>
 
 <section class="categories">
-
-<h2>Fashion Categories</h2>
-
-<div class="category-grid">
-
-<div class="category">Saree</div>
-<div class="category">Kurta</div>
-<div class="category">Sherwani</div>
-<div class="category">Wedding</div>
-<div class="category">Luxury</div>
-<div class="category">Designer</div>
-<div class="category">Casual</div>
-<div class="category">Streetwear</div>
-
-</div>
-
+  <h2>Fashion Categories</h2>
+  <div class="category-grid">
+    <div class="category">Saree</div>
+    <div class="category">Kurta</div>
+    <div class="category">Sherwani</div>
+    <div class="category">Wedding</div>
+    <div class="category">Luxury</div>
+    <div class="category">Designer</div>
+    <div class="category">Casual</div>
+    <div class="category">Streetwear</div>
+  </div>
 </section>
 
 <footer>
-
-<h3>AiLibas</h3>
-
-<p>
-© 2026 AiLibas - AI Fashion Platform
-</p>
-
+  <h3>AiLibas</h3>
+  <p>© 2026 AiLibas - AI Fashion Platform</p>
 </footer>
 
+<!-- SCRIPT 1: Regular script — generateAI, timer, image preview -->
 <script>
 
-const humanInput=document.getElementById("humanInput");
-const clothInput=document.getElementById("clothInput");
-
-const humanPreview=document.getElementById("humanPreview");
-const clothPreview=document.getElementById("clothPreview");
-
-const humanText=document.getElementById("humanText");
-const clothText=document.getElementById("clothText");
-
-const resultPreview=document.getElementById("resultPreview");
-const resultText=document.getElementById("resultText");
-
-humanInput.addEventListener("change",function(){
-
-const file=this.files[0];
-
-if(file){
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-humanPreview.src=e.target.result;
-humanPreview.style.display="block";
-humanText.style.display="none";
-
-}
-
-reader.readAsDataURL(file);
-
-}
-
+document.getElementById("humanInput").addEventListener("change", function(){
+  const file = this.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById("humanPreview").src = e.target.result;
+    document.getElementById("humanPreview").style.display = "block";
+    document.getElementById("humanText").style.display = "none";
+  };
+  reader.readAsDataURL(file);
 });
 
-clothInput.addEventListener("change",function(){
-
-const file=this.files[0];
-
-if(file){
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-clothPreview.src=e.target.result;
-clothPreview.style.display="block";
-clothText.style.display="none";
-
-}
-
-reader.readAsDataURL(file);
-
-}
-
+document.getElementById("clothInput").addEventListener("change", function(){
+  const file = this.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById("clothPreview").src = e.target.result;
+    document.getElementById("clothPreview").style.display = "block";
+    document.getElementById("clothText").style.display = "none";
+  };
+  reader.readAsDataURL(file);
 });
 
-window.toggleAuth=function(){
+window.toggleAuth = function(){
+  const s = document.getElementById("authSection");
+  s.style.display = (s.style.display === "block") ? "none" : "block";
+};
 
-const authSection=document.getElementById("authSection");
+// Timer — global variables
+let _timerInterval = null;
+let _elapsed = 0;
 
-if(
-authSection.style.display==="none"
-||
-authSection.style.display===""
-
-){
-
-authSection.style.display="block";
-
-}else{
-
-authSection.style.display="none";
-
+function _startTimer(){
+  _elapsed = 0;
+  // statusArea mein sirf timer render karo
+  document.getElementById("statusArea").innerHTML = `
+    <div class="generating-msg">⏳ Generating AI Outfit...</div>
+    <div class="timer-num" id="timerNum">0s</div>
+    <div class="timer-label">elapsed time</div>
+  `;
+  // Sirf timerNum ko update karo — poora statusArea overwrite nahi hoga
+  _timerInterval = setInterval(function(){
+    _elapsed++;
+    var el = document.getElementById("timerNum");
+    if(el) el.textContent = _elapsed + "s";
+  }, 1000);
 }
 
+function _stopTimer(){
+  if(_timerInterval){ clearInterval(_timerInterval); _timerInterval = null; }
 }
+
+window.generateAI = async function(){
+  var hfToken = document.getElementById("hfTokenInput").value.trim();
+
+  if(!hfToken || !hfToken.startsWith("hf_")){
+    alert("Pehle apna HuggingFace token daalo!\nhttps://huggingface.co/settings/tokens se free token lo.");
+    document.getElementById("hfTokenInput").focus();
+    return;
+  }
+
+  var humanFile = document.getElementById("humanInput").files[0];
+  var clothFile  = document.getElementById("clothInput").files[0];
+
+  if(!humanFile || !clothFile){
+    alert("Dono images upload karo pehle!");
+    return;
+  }
+
+  var genBtn = document.getElementById("genBtn");
+  var resultPreview = document.getElementById("resultPreview");
+
+  genBtn.disabled = true;
+  genBtn.textContent = "Generating...";
+  resultPreview.style.display = "none";
+
+  _startTimer();
+
+  try {
+    var response = await fetch(
+      "https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-base-1.0",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + hfToken,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          inputs: "Ultra realistic Indian fashion model wearing premium stylish traditional saree outfit, cinematic fashion photography, ultra HD"
+        })
+      }
+    );
+
+    if(!response.ok){
+      var errText = await response.text();
+      console.error("HF Error:", response.status, errText);
+      var msg = "Kuch error aaya.";
+      if(response.status === 401) msg = "❌ Token galat hai! HuggingFace token dobara check karo.";
+      else if(response.status === 503) msg = "⏳ Model load ho raha hai. 30 second baad dobara try karo.";
+      else if(response.status === 429) msg = "⚠️ Bahut zyada requests. Thodi der baad try karo.";
+      else msg = "❌ Error " + response.status;
+      _stopTimer();
+      document.getElementById("statusArea").innerHTML = '<p class="error-msg">' + msg + '</p>';
+      return;
+    }
+
+    var blob = await response.blob();
+    var imageURL = URL.createObjectURL(blob);
+    var timeTaken = _elapsed;
+
+    _stopTimer();
+
+    resultPreview.src = imageURL;
+    resultPreview.style.display = "block";
+
+    document.getElementById("statusArea").innerHTML =
+      '<div class="success-msg">✅ AI Outfit taiyar! (' + timeTaken + 's mein generate hua)</div>' +
+      '<a href="' + imageURL + '" download="AiLibas-AI-Outfit.png" ' +
+      'style="display:inline-block;padding:15px 28px;background:gold;color:black;font-weight:bold;border-radius:15px;text-decoration:none;font-size:16px;">' +
+      '⬇️ Download Image</a>';
+
+  } catch(err) {
+    _stopTimer();
+    console.error(err);
+    document.getElementById("statusArea").innerHTML = '<p class="error-msg">❌ Error: ' + err.message + '</p>';
+  } finally {
+    genBtn.disabled = false;
+    genBtn.textContent = "Generate AI Outfit";
+  }
+};
 
 </script>
 
+<!-- SCRIPT 2: Module — sirf Firebase -->
 <script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 import {
-getAuth,
-createUserWithEmailAndPassword,
-signInWithEmailAndPassword,
-GoogleAuthProvider,
-signInWithPopup,
-onAuthStateChanged,
-signOut
-}
-from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
 const firebaseConfig = {
-
-apiKey:"AIzaSyDUIRT56QyHIrhDQ0ZX8zniAso5PueD19M",
-
-authDomain:"ailibas.firebaseapp.com",
-
-projectId:"ailibas",
-
-storageBucket:"ailibas.firebasestorage.app",
-
-messagingSenderId:"165472647243",
-
-appId:"1:165472647243:web:5af99b836ec3dc962635ce"
-
+  apiKey: "AIzaSyDUIRT56QyHIrhDQ0ZX8zniAso5PueD19M",
+  authDomain: "ailibas.firebaseapp.com",
+  projectId: "ailibas",
+  storageBucket: "ailibas.firebasestorage.app",
+  messagingSenderId: "165472647243",
+  appId: "1:165472647243:web:5af99b836ec3dc962635ce"
 };
 
-const HF_TOKEN="YOUR_HUGGINGFACE_TOKEN";
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-const app=initializeApp(firebaseConfig);
+window.signup = function(){
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => { alert("Signup Successful!"); document.getElementById("authSection").style.display="none"; })
+    .catch(e => alert(e.message));
+};
 
-const auth=getAuth(app);
+window.login = function(){
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => { alert("Login Successful!"); document.getElementById("authSection").style.display="none"; })
+    .catch(e => alert(e.message));
+};
 
-const provider=new GoogleAuthProvider();
+window.googleLogin = function(){
+  signInWithPopup(auth, provider)
+    .then(() => { document.getElementById("authSection").style.display="none"; })
+    .catch(e => alert(e.message));
+};
 
-window.signup=function(){
+window.logout = function(){ signOut(auth); };
 
-const email=document.getElementById("email").value;
-
-const password=document.getElementById("password").value;
-
-createUserWithEmailAndPassword(auth,email,password)
-
-.then(()=>{
-
-alert("Signup Successful");
-
-document.getElementById("authSection").style.display="none";
-
-})
-
-.catch((error)=>{
-
-alert(error.message);
-
+onAuthStateChanged(auth, (user) => {
+  const userArea = document.getElementById("userArea");
+  if(user){
+    const photo = user.photoURL || "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+    const name  = user.displayName || user.email;
+    userArea.innerHTML =
+      '<div style="display:flex;align-items:center;gap:10px;">' +
+      '<img src="' + photo + '" style="width:45px;height:45px;border-radius:50%;border:2px solid gold;">' +
+      '<button class="top-btn" onclick="logout()">' + name + '</button></div>';
+  } else {
+    userArea.innerHTML = '<button class="top-btn" onclick="toggleAuth()">Login</button>';
+  }
 });
-
-}
-
-window.login=function(){
-
-const email=document.getElementById("email").value;
-
-const password=document.getElementById("password").value;
-
-signInWithEmailAndPassword(auth,email,password)
-
-.then(()=>{
-
-alert("Login Successful");
-
-document.getElementById("authSection").style.display="none";
-
-})
-
-.catch((error)=>{
-
-alert(error.message);
-
-});
-
-}
-
-window.googleLogin=function(){
-
-signInWithPopup(auth,provider)
-
-.then(()=>{
-
-alert("Google Login Successful");
-
-document.getElementById("authSection").style.display="none";
-
-})
-
-.catch((error)=>{
-
-alert(error.message);
-
-});
-
-}
-
-window.logout=function(){
-
-signOut(auth);
-
-}
-
-onAuthStateChanged(auth,(user)=>{
-
-const userArea=document.getElementById("userArea");
-
-if(user){
-
-const photo=
-user.photoURL ||
-"https://cdn-icons-png.flaticon.com/512/149/149071.png";
-
-const name=
-user.displayName ||
-user.email;
-
-userArea.innerHTML=`
-
-<div style="
-display:flex;
-align-items:center;
-gap:10px;
-">
-
-<img
-src="${photo}"
-style="
-width:45px;
-height:45px;
-border-radius:50%;
-border:2px solid gold;
-"
->
-
-<button
-class="top-btn"
-onclick="logout()"
->
-${name}
-</button>
-
-</div>
-
-`;
-
-}else{
-
-userArea.innerHTML=`
-
-<button
-class="top-btn"
-onclick="toggleAuth()"
->
-Login
-</button>
-
-`;
-
-}
-
-});
-
-window.generateAI = async function(){
-
-if(!humanInput.files[0] || !clothInput.files[0]){
-
-alert("Upload both images");
-return;
-
-}
-
-resultText.innerHTML = `
-
-<div style="font-size:24px;margin-bottom:15px;">
-Generating AI Outfit...
-</div>
-
-<div id="timer" style="
-font-size:38px;
-font-weight:bold;
-color:gold;
-">
-0s
-</div>
-
-`;
-
-resultPreview.style.display = "none";
-
-let seconds = 0;
-
-const timer = setInterval(()=>{
-
-seconds++;
-
-const timerElement =
-document.getElementById("timer");
-
-if(timerElement){
-
-timerElement.innerHTML =
-seconds + "s";
-
-}
-
-},1000);
-
-try{
-
-const response = await fetch(
-
-"https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-base-1.0",
-
-{
-
-method:"POST",
-
-headers:{
-"Authorization":"Bearer " + HF_TOKEN,
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-
-inputs:
-"Ultra realistic Indian fashion model wearing premium stylish traditional outfit, cinematic fashion photography, ultra HD"
-
-})
-
-}
-
-);
-
-if(!response.ok){
-
-clearInterval(timer);
-
-const errorText =
-await response.text();
-
-console.log(errorText);
-
-alert(
-"AI model loading... wait 20 seconds and try again"
-);
-
-return;
-
-}
-
-const blob = await response.blob();
-
-const imageURL =
-URL.createObjectURL(blob);
-
-resultPreview.src = imageURL;
-
-resultPreview.style.display = "block";
-
-clearInterval(timer);
-
-resultText.innerHTML = `
-
-<div style="
-font-size:24px;
-color:lightgreen;
-margin-bottom:20px;
-">
-AI Outfit Generated Successfully
-</div>
-
-<a
-href="${imageURL}"
-download="AiLibas-AI-Outfit.png"
-style="
-display:inline-block;
-padding:15px 28px;
-background:gold;
-color:black;
-font-weight:bold;
-border-radius:15px;
-text-decoration:none;
-"
->
-Download Image
-</a>
-
-`;
-
-}catch(error){
-
-clearInterval(timer);
-
-alert(error.message);
-
-resultText.innerHTML =
-"AI generation failed";
-
-}
-
-}
-
 </script>
 
 </body>
-  </html>
+</html>
